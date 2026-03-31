@@ -1,0 +1,203 @@
+/* RESET & FOND */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: #1a0b0b;
+    color: #f2e6e6;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* ÉCRAN MOT DE PASSE */
+#password-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    background: #1a0b0b;
+}
+
+#password-screen h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #ffcccc;
+}
+
+#password-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #f2dede;
+}
+
+#password-screen input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ff4d4d;
+    width: 200px;
+    margin-bottom: 10px;
+    background: #2b1111;
+    color: #f2e6e6;
+}
+
+#password-screen button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #ff4d4d;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#password-screen button:hover {
+    background: #e60000;
+}
+
+#passwordError {
+    font-size: 0.95rem;
+    color: #ff6666;
+    margin-top: 8px;
+}
+
+/* HISTOIRE */
+#story {
+    display: none;
+    padding: 20px 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.block {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+    margin-bottom: 40px;
+}
+
+.block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.block p {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+}
+
+/* MEDIA STYLING */
+.media {
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 15px;
+}
+
+/* PHOTO 1 - droite du 4e paragraphe */
+#story .block:nth-child(5) img {
+    float: right;
+    max-width: 35%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* VIDEO 1 - gauche du 5e paragraphe */
+#story .block:nth-child(6) video {
+    float: left;
+    max-width: 40%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* VIDÉOS FLEURS - une à gauche, texte centré, autre à droite */
+#story .block:nth-child(7) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#story .block:nth-child(7) video:first-child {
+    float: left;
+    max-width: 35%;
+    margin: 10px;
+}
+
+#story .block:nth-child(7) p {
+    flex: 1 1 100%;
+    margin: 10px auto;
+}
+
+#story .block:nth-child(7) video:last-child {
+    float: right;
+    max-width: 35%;
+    margin: 10px;
+}
+
+/* VIDEO NOTIF - droite du texte */
+#story .block:nth-child(8) video {
+    float: right;
+    max-width: 35%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* VIDEO BELLE - gauche du texte */
+#story .block:nth-child(10) video {
+    float: left;
+    max-width: 40%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* ----------------- CŒUR FINAL DISCRET ----------------- */
+#finalHeart {
+    display: none;          /* caché au départ */
+    font-size: 2.5rem;      /* taille élégante et visible */
+    color: #8B0000;         /* rouge sombre, dark romance */
+    text-align: center;     /* centré sous le dernier paragraphe */
+    margin: 40px 0;         /* un peu d'espace au-dessus et en-dessous */
+}
+
+/* ----------------- PÉTALES ----------------- */
+.petal {
+    position: absolute;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+    background: url('medias/petal.png') no-repeat center/contain;
+    opacity: 0.9;
+    animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(120vh) translateX(50px) rotate(360deg); opacity: 0; }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .media, #story .block:nth-child(5) img,
+    #story .block:nth-child(6) video,
+    #story .block:nth-child(7) video,
+    #story .block:nth-child(8) video,
+    #story .block:nth-child(10) video {
+        float: none;
+        max-width: 80%;
+        display: block;
+        margin: 10px auto;
+    }
+}
